@@ -1,0 +1,118 @@
+Report on AI-Based Intrusion & Behaviour Anomaly Detector 
+
+Problem Statement
+
+Modern digital infrastructures face increasingly advanced cybersecurity threats that often bypass 
+traditional rule-based security systems. Attackers now rely on behavioural spoofing, credential theft,
+automated bot activity, session hijacking, and distributed intrusion techniques that blend into normal 
+system operations. As an organization grows, its servers generate massive volumes of behavioural and 
+activity logs—from login attempts and device details to network movements and system actions.
+Traditional monitoring tools are not equipped to analyse these logs in real time or detect subtle 
+behavioural deviations. Security teams cannot manually review such large datasets, nor can they 
+consistently identify complex patterns that indicate intrusions. This gap creates vulnerabilities 
+where attacks can progress unnoticed.
+To solve this challenge, an automated, real-time anomaly detection and response system is 
+required—one that leverages AI to learn normal behaviour, detect anomalies instantly, and 
+trigger protective actions. The proposed solution integrates AI-based detection, an MCP Server 
+pipeline, automated response logic, and a comprehensive dashboard to give security teams complete 
+visibility and control.
+
+Solution Overview
+
+The system creates a continuous security workflow that collects logs, analyses behaviour, 
+detects anomalies, performs mitigation, and reports results in real time.
+It consists of five core components:
+
+Dashboard Interface
+Log Analysis Engine
+AI Anomaly Detection Model
+MCP Server (Model Context Protocol)
+Automated Response Algorithm
+
+Together, these components provide a fully automated intrusion detection and response mechanism 
+with human oversight.
+
+Dashboard Interface:
+
+The dashboard serves as the central monitoring and control panel for security analysts. 
+Built with modern web technologies such as React supported by
+backend frameworks Express and Node.js, the dashboard enables real-time visibility.
+
+Key capabilities include:
+
+• Real-time alerts: Displays high-severity warnings from the AI detection system.
+• Live activity feed: Streams user actions, login attempts, and anomaly indicators.
+• Notification system: Sends email, SMS, or push alerts for critical incidents.
+• Response tracking: Logs automated actions such as IP blocking or MFA enforcement.
+• Human review: Allows analysts to approve, override, or escalate system decisions.
+
+The dashboard ensures human operators remain informed and can intervene whenever necessary,
+maintaining a balance between automation and oversight.
+
+Log Analysis and Behaviour Tracking:
+Logs from multiple system components are continuously collected to build a behavioural timeline. 
+Sources include:
+
+Authentication attempts
+Device fingerprints
+Keystroke patterns and typing speed
+Network movements and IP switching
+Session metadata
+System-level events
+
+This log stream feeds into the AI model and is also used to define behavioural baselines. 
+Over time, the system learns what “normal” looks like for each user or device. Any deviation from 
+these patterns becomes grounds for anomaly detection.
+
+AI Model for Behaviour-Based Intrusion Detection:
+The AI model is the intelligence layer of the system. Instead of relying on static rules, 
+it learns behavioural signatures using historical data. It continuously evaluates real-time logs and
+compares them to baseline patterns.
+
+The model detects anomalies such as:
+
+• Impossible travel
+• Device mismatch
+• Bot-like typing behaviour
+• Suspicious network changes
+• Brute-force patterns
+• Privilege escalation attempts
+When an anomaly is detected, the model produces a structured output that includes severity level, 
+flagged behaviours, and reasoning.
+
+MCP Server (Model Context Protocol):
+
+The MCP Server acts as the communication and processing backbone.
+Its core responsibilities include:
+
+• Data transport: Receives logs from system components and streams them to the AI model.
+• AI integration: Sends telemetry to the AI engine and receives severity classification.
+• Trigger generation: For HIGH-severity incidents, it activates the automated response algorithm.
+
+Routing logic:
+
+• LOW / MEDIUM severity → logged into the database
+• HIGH severity → response algorithm triggered and dashboard alerted
+
+The MCP architecture supports scaling, allowing distributed AI processing and modular growth.
+
+Automated Response Algorithm
+
+When the MCP Server flags an event as HIGH severity, the Automated Response Algorithm determines 
+the appropriate defensive action. Possible responses include:
+
+• Blocking the user’s IP
+• Enforcing MFA
+• Invalidating active sessions
+• Temporarily disabling the user account
+All actions are logged, timestamped, and displayed on the dashboard. Analysts retain the option to
+reverse, modify, or escalate automated responses.
+
+Conclusion
+
+The system delivers an end-to-end AI-driven intrusion detection and response workflow.
+ By combining behavioural analysis, intelligent logging, automated mitigation, and a comprehensive 
+ dashboard, the solution greatly strengthens an organization’s security posture. It reduces detection 
+ time, increases accuracy, and ensures continuous monitoring while preserving human oversight. 
+ This approach provides a powerful defence against modern behavioural and system-level threats, 
+  enabling resilient protection across digital infrastructures. 
